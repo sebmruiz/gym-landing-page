@@ -1,66 +1,315 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Red+Hat+Display:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Red+Hat+Display:wght@400;700;900&display=swap");
 
-:root{
---header-height: 3.5rem;
+:root {
+  --header-height: 3.5rem;
 
-/* --------Colors-------- */
-    --first-color:hsl(79,72%,55%);
-    --first-color-light:hsl(79,97%,77%);
-    --first-color-alt:hsl(79,67%,52%);
-    --first-color-dark: hsl(79,63%,50%);
-    --first-color-gray:hsl(79,6%,64%);
-    --title-color:hsl(180,4%,98%);
-    --title-color-black:hsl(180,4%,12%);
-    --text-color:hsl(180,4%,72%);
-    --text-color-light:hsl(180,4%,65%);
-    --body-color:hsl(180,12%,8%);
+  /* ================== Colors ================== */
+  --first-color: hsl(79, 72%, 55%);
+  --first-color-light: hsl(79, 97%, 77%);
+  --first-color-alt: hsl(79, 67%, 52%);
+  --first-color-dark: hsl(79, 63%, 50%);
+  --first-color-gray: hsl(79, 6%, 64%);
+  --title-color: hsl(180, 4%, 98%);
+  --title-color-black: hsl(180, 4%, 12%);
+  --text-color: hsl(180, 4%, 72%);
+  --text-color-light: hsl(180, 4%, 65%);
+  --body-color: hsl(180, 12%, 8%);
 
+  /* ================== Fonts ================== */
+  --body-font: "Red Hat Display", sans-serif;
+  --secondary-font: "Kaushan Script", cursive;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.5rem;
+  --big-font-size: 1.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
 
-/* --------Fonts-------- */
---body-font:'Red Hat Display', sans-serif;
---secondary-font:'Kaushan Script', cursive;
---biggest-font-size:2rem;
---bigger-font-size:1.5rem;
---big-font-size:1.25rem;
---h1-font-size:1.5rem;
---h2-font-size:1.25rem;
---h3-font-size:1rem;
---normal-font-size:.938rem;
---small-font-size:.813rem;
---smaller-font-size:.75rem;
+  /* ================== Font weigth ================== */
+  --font-bold: 700;
+  --font-black: 900;
 
-/* --------Font weigth-------- */
---font-bold: 700;
---font-blakc: 900;
+  /* ================== z index ================== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 2rem;
+    --bigger-font-size: 3.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
 
-/* --------z index-------- */
---z-tooltip:10;
---z-fixed:100;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-    @media screen and  (min-width:1024px) {
-        :root {
-            --biggest-font-size:2rem;
-            --bigger-font-size:3.5rem;
-            --big-font-size:2.75rem;
-            --h1-font-size:2.25rem;
-            --h2-font-size:1.5rem;
-            --h3-font-size:1.25rem;
-            --normal-font-size:1rem;
-            --small-font-size:.875rem;
-            --smaller-font-size:.813rem;
-        }
+html {
+  scroll-behavior: smooth;
+}
+body,
+button,
+input{
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+body{
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+/*  ================== css-classes ================== */
+
+.container{
+    max-width: 1124px;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+}
+.section{
+    padding: 4.5rem 0 2rem;
+}
+.section-data{
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title,
+.section-title-border{
+font-size: var(--big-font-size);
+letter-spacing: 1.5px;
+}
+.section-subtitle{
+    font-size: var(--h2-font-size);
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    color: var(--first-color);
+    transform: rotate(-2deg);
+}
+.section-titles{
+    display: flex;
+    column-gap: .75rem;
+    justify-content: center;
+}
+.section-titles-border{
+    -webkit-text-stroke: 1px var(--text-color);
+    color: transparent;
+}
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+.main{
+    overflow: hidden;/* for animation scrollReveal */
+}
+
+/* ================== HEADER & NAV ==================*/
+.header{
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: background .3s;
+}
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo,
+.nav-toggle{
+    color: var(--title-color);
+    display: flex;
+}
+.nav-logo{
+    align-items: center;
+    column-gap: .5rem;
+    font-weight: var(--font-bold);
+}
+.nav-logo img{
+    width: 1.25rem;
+
+}
+.nav-toggle{
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+    .nav-menu{
+        position: fixed;
+        background-color: hsla(180, 12%, 8%, .8);
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100%;
+        border-left: 2px solid var(--first-color-gray);
+        transition: right .3s;
     }
 }
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+.nav-list{
+    padding: 5rem 0 0 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+}
+.nav-link{
+    color: var(--title-color);
+    transition: color .3s;
+}
+.nav-link:hover{
+    color: var(--first-color);
+}
+.nav-close{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+.nav .nav-button{
+    background-color: var(--title-color);
+    border: none;
 }
 
-html{
-    scroll-behavior: smooth;
+/* SHOW MENU */
+.show-menu{
+    right: 0;
 }
-body, button, input{
-    font-family: var();
+/* Change background header */
+.bg-header{
+    background-color: var(--body-color);
+    box-shadow: 0 4px 8px hsla(180, 12%, 4%, .3);
 }
+
+
+
+/* ================== MENU ==================*/
+.home{
+    position: relative;
+    padding-bottom: 0%;
+}
+.home-container{
+    padding-top: 4rem;
+    row-gap: 3rem;
+}
+.home-data{
+    text-align: center;
+}
+.home-subtitle{
+    font-size: var(--bigger-font-size);
+    -webkit-text-stroke: 1px var(--title-color);
+    color: transparent;
+}
+.home-title{
+    font-size: var(--bigger-font-size);
+    font-weight: var(--font-black);
+    margin: .5rem 0;
+}
+.home-subtitle,
+.home-title{
+    letter-spacing: 1.5px;
+}
+.home-description{
+    margin-bottom: 2.5rem;
+}
+.home-triangle{
+    height: 325px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+.home-triangle-1{
+    width: 150px;
+    background-color: var(--first-color);
+}
+.home-triangle-2{
+    width: 205px;
+    background-color: var(--first-color-alt);
+}
+.home-triangle-3{
+    width: 305px;
+    background-color: var(--first-color-dark);
+}
+.home-img{
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* ================== BUTTON ==================*/
+.button{
+    display: inline-block;
+    background-color: var(--first-color);
+    padding: 18px 32px;
+    border: 2px solid var(--first-color-light);
+    color: var(--title-color-black);
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    transition: background .3s;
+}
+.button:hover{
+    background-color: var(--first-color-alt)
+}
+.button i{
+    font-size: 1.25rem;
+    transition: transform .3s;
+}
+.button-flex{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: .5rem;
+}
+.button-flex:hover i{
+    transform: translateX(.25rem);
+}
+
+/* ================== LOGOS ==================*/
+.logos-container{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+}
+.logos-img{
+    width: 120px;
+}
+
+/* ================== PROGRAM ==================*/
