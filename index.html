@@ -371,9 +371,179 @@
       </section>
     </main>
 
+    <!--======================== CALCULATE ========================-->
+    <section class="calculate section" id="calculate">
+      <div class="calculate-container container grid">
+        <div class="calculate-content">
+          <div class="section-titles">
+            <h1 class="section-titles-border">CALCULATE</h1>
+            <h1 class="section-titles">YOUR BMI</h1>
+          </div>
+
+          <p class="calculate-description">
+            The body mass index (BMI) calculator calculates body mass index from
+            your weigth and height.
+          </p>
+
+          <form action="" class="calculate-form" id="calculate-form">
+            <div class="calculate-box">
+              <input
+                type="number"
+                placeholder="Height"
+                class="calculate-input"
+                id="calculate-cm"
+              />
+              <label for="" class="calculate-label">cm</label>
+            </div>
+
+            <div class="calculate-box">
+              <input
+                type="number"
+                placeholder="Weight"
+                class="calculate-input"
+                id="calculate-kg"
+              />
+              <label for="" class="calculate-label">kg</label>
+            </div>
+
+            <button type="submit" class="button button-flex">
+              Calculate Now <i class="ri-arrow-right-line"></i>
+            </button>
+          </form>
+
+          <p class="calculate-message" id="calculate-message"></p>
+        </div>
+        <img
+          src="img/calculate-img.png"
+          alt="calculate image"
+          class="calculate-img"
+        />
+      </div>
+    </section>
+
     <!--======================== FOOTER ========================-->
 
-    <footer class="footer section" id="footer"></footer>
+    <footer class="footer section" id="footer">
+      <div class="footer-container container grid">
+        <div>
+          <a href="#" class="footer-logo">
+            <img src="img/logo-nav.png" alt="logo" /> BEROTOT
+          </a>
+          <p class="footer-description">
+            Subscribe for company <br />
+            updates below.
+          </p>
+
+          <form action="" class="footer-form" id="contact-form">
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Your email"
+              class="footer-input"
+              id="contact-user"
+            />
+            <button type="submit" class="button">Subscribe</button>
+          </form>
+
+          <p class="footer-message" id="contact-message"></p>
+        </div>
+
+        <div class="footer-content">
+          <div>
+            <h3 class="footer-titles">SERVICES</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link">Flex Muscle</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Cardio Exercise</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Basic Yoga</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Weight Lifting</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-titles">PRICING</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link">Basic</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Premiun</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Diamond</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-titles">COMPANY</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Customers</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Partner</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="footer-group">
+          <ul class="footer-social">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-facebook-circle-fill"></i>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-instagram-line"></i>
+            </a>
+          </ul>
+
+          <span class="footer-copy">
+            &#169; Copyright SMR. All right reserved
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!--======================== SCROLL UP ========================-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
 
     <script src="js/script.js"></script>
   </body>
